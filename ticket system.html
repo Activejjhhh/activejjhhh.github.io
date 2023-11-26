@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.container {
+    width: 390px;
+    height: 844px;
+    position: relative;
+    margin: auto;
+    background-image: url('net.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* created date function */
+.cover1 {
+    position: absolute;
+    top: 50%;  
+    left: 50%;
+    width: 250px;  
+    height: 26px;  
+    background-color: #012a29;  
+    transform: translate(-50%, -50%);
+}
+
+
+.date-overlay1 {
+    position: absolute;
+    top: calc(50% - 5px);  
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;  
+    font-weight: bold; 
+    color: white;  
+    font-family: Arial, sans-serif;  
+    white-space: nowrap;  
+
+/* expiration date function */
+}
+.cover2 {
+    position: absolute;
+    top: 57%;  
+    left: 50%;
+    width: 250px; 
+    height: 26px;  
+    background-color: #40605e;  
+    transform: translate(-50%, -50%);
+}
+
+.date-overlay2 {
+    position: absolute;
+    top: calc(60% - 27px); 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 19px;  
+    font-weight: bold;  
+    color: white;  
+    font-family: Arial, sans-serif;
+    white-space: nowrap;  
+}
+
+/* live time function  */
+
+
+.cover-red {
+    position: absolute;
+    top: 40%; 
+    left: 50%;
+    width: 250px;  
+    height: 24px;
+    background-color: #FFFFFF;  
+    transform: translate(-50%, -50%);
+}
+
+.date-overlay-red {
+    position: absolute;
+    top: calc(40% - 1px);  
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 17px;  
+    font-weight: bold;  
+    color: #012a29;  
+    font-family: Consolas, monospace;  
+    white-space: nowrap; 
+}
+
+
+/* countdown function */
+.cover-blue {
+    position: absolute;
+    top: 75%; 
+    left: 50%;
+    width: 290px;  
+    height: 24px;
+    background-color: #042c2c;  
+    transform: translate(-50%, -50%);
+}
+
+.date-overlay-blue {
+    position: absolute;
+    top: calc(75% - 1px);  
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 17px;  
+    font-weight: bold; 
+    color: white;  
+    font-family: 'Consolas', monospace;  
+    white-space: nowrap; 
+}
+
+
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="cover1"></div>
+    <div class="date-overlay1">
+        <!-- JavaScript to get today's date -->
+        <script>
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth()); //January is 0!
+            var yyyy = today.getFullYear();
+            var day = today.getDay(); // Sunday is 0!
+    
+            var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    
+            today = days[day] + ' ' + dd + ' ' + months[mm] + ' ' + yyyy + ' 07:24';
+            document.write(today);
+        </script>
+    </div>
+    <div class="cover2"></div>
+    <div class="date-overlay2">
+        <!-- JavaScript to get tomorrow's date -->
+        <script>
+            var tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(2, 0, 0, 0);
+    
+            var dd = String(tomorrow.getDate()).padStart(2, '0');
+            var mm = String(tomorrow.getMonth()); //January is 0!
+            var yyyy = tomorrow.getFullYear();
+            var day = tomorrow.getDay(); // Sunday is 0!
+    
+            var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    
+            tomorrow = days[day] + ' ' + dd + ' ' + months[mm] + ' ' + yyyy + ' 02:00';
+            document.write(tomorrow);
+        </script>
+    </div>
+    <div class="cover-red"></div>
+    <div class="date-overlay-red" id="liveTime">
+        <!-- JavaScript to get live time -->
+        <script>
+            function updateTime() {
+                var now = new Date();
+                var dd = String(now.getDate()).padStart(2, '0');
+                var mm = String(now.getMonth()); //January is 0!
+                var yyyy = now.getFullYear();
+                var day = now.getDay(); // Sunday is 0!
+                var hh = String(now.getHours()).padStart(2, '0');
+                var min = String(now.getMinutes()).padStart(2, '0');
+                var sec = String(now.getSeconds()).padStart(2, '0');
+    
+                var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+                var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    
+                var liveTime = days[day] + ' ' + dd + '  ' + months[mm] + '  ' + yyyy + '  ' + hh + ':' + min + ':' + sec;
+                document.getElementById('liveTime').innerHTML = liveTime;
+            }
+            setInterval(updateTime, 1000); 
+        </script>
+    </div>
+    <div class="cover-blue"></div>
+    <div class="date-overlay-blue" id="countdown">
+            <!-- JavaScript to get countdown to next day at 2 AM -->
+            <script>
+                function updateCountdown() {
+                    var now = new Date();
+                    var tomorrow = new Date();
+                    tomorrow.setDate(tomorrow.getDate() + 1);
+                    tomorrow.setHours(2, 0, 0, 0);
+        
+                    var diff = Math.abs(tomorrow - now);
+                    var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        
+                    var countdown = days + " days  " + hours + " hrs  " + minutes + " mins  " + seconds + " secs";
+
+                    document.getElementById('countdown').innerHTML = countdown;
+                }
+                setInterval(updateCountdown, 1000);
+            </script>
+        </div>
+</div>
+</body>
+</html>
+
