@@ -222,28 +222,29 @@
     </video>
 
     <script>
-        // Get the image and video elements
-        var ticketImage = document.getElementById('ticketImage'); // Now references the correct id
-        var ticketVideo = document.getElementById('ticketVideo');
+    // Get the image and video elements
+    var ticketImage = document.getElementById('ticketImage'); // Now references the correct id
+    var ticketVideo = document.getElementById('ticketVideo');
 
-        // Add event listener for when the image is pressed
-        ticketImage.addEventListener('click', function() {
-            // Hide the image
-            ticketImage.style.display = 'none';
-            
-            // Show the video
-            ticketVideo.style.display = 'block';
+    // Add event listener for when the image is pressed
+    ticketImage.addEventListener('click', function() {
+        // Hide the image
+        ticketImage.style.display = 'none';
+        
+        // Show the video
+        ticketVideo.style.display = 'block';
 
-            // Play the video
-            ticketVideo.play();
-        });
+        // Play the video
+        ticketVideo.play();
+    });
 
-        // Hide the video when it ends and reset it
-        ticketVideo.addEventListener('ended', function() {
-            ticketVideo.style.display = 'none';  // Hide the video
-            ticketVideo.currentTime = 0;         // Reset playback position to the start
-        });
-    </script>
+    // Hide the video when it ends and reset it
+    ticketVideo.addEventListener('ended', function() {
+        ticketVideo.style.display = 'none';  // Hide the video
+        ticketVideo.currentTime = 0;         // Reset playback position to the start
+    });
+</script>
+
     
     <div class="cover-red"></div>
     <div class="date-overlay-red" id="liveTime">
