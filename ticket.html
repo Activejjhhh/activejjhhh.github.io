@@ -163,20 +163,17 @@
     filter: brightness(1.5); /* Increase brightness to lighten the image */
 }
 
+/* Style for the video */
 .ticket-video {
     position: absolute;
-    top: 68%; /* Adjusted position to be slightly higher */
+    top: 72%; /* Adjusted position to be slightly lower */
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 250px; /* Increased size slightly */
+    width: 300px; /* Increased size slightly */
     height: auto; /* Maintain aspect ratio */
     display: none; /* Initially hidden */
     z-index: 10; /* Ensure the video is on top */
-    /* Removed the background color */
 }
-
-
-
 </style>
 </head>
 <body>
@@ -218,8 +215,8 @@
             document.write(tomorrow);
         </script>
     </div>
-<img src="tramimage.PNG" alt="Ticket Image" class="ticket-image" id="ticketImage"> <!-- Added id here -->
-    <video class="ticket-video" id="ticketVideo" width="230" height="auto" controls style="display: none;">
+    <img src="tramimage.PNG" alt="Ticket Image" class="ticket-image" id="ticketImage"> <!-- Added id here -->
+    <video class="ticket-video" id="ticketVideo" width="300" height="auto" style="display: none;" onended="this.style.display='none';">
         <source src="IMG_0003-vmake.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -240,7 +237,13 @@
             // Play the video
             ticketVideo.play();
         });
+
+        // Hide the video when it ends
+        ticketVideo.addEventListener('ended', function() {
+            ticketVideo.style.display = 'none';
+        });
     </script>
+    
     <div class="cover-red"></div>
     <div class="date-overlay-red" id="liveTime">
         <!-- JavaScript to get live time -->
