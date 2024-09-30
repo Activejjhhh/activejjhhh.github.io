@@ -175,23 +175,7 @@
     display: none; /* Initially hidden */
 }
 
-<script>
-    // Get the image and video elements
-    var ticketImage = document.getElementById('ticketImage');
-    var ticketVideo = document.getElementById('ticketVideo');
 
-    // Add event listener for when the image is pressed
-    ticketImage.addEventListener('click', function() {
-        // Hide the image
-        ticketImage.style.display = 'none';
-        
-        // Show the video
-        ticketVideo.style.display = 'block';
-
-        // Play the video
-        ticketVideo.play();
-    });
-</script>
 
 
 
@@ -242,6 +226,23 @@
     Your browser does not support the video tag.
     </video>
 
+    <script>
+    // Get the image and video elements
+    var ticketImage = document.getElementById('ticketImage');
+    var ticketVideo = document.getElementById('ticketVideo');
+
+    // Add event listener for when the image is pressed
+    ticketImage.addEventListener('click', function() {
+        // Hide the image
+        ticketImage.style.display = 'none';
+        
+        // Show the video
+        ticketVideo.style.display = 'block';
+
+        // Play the video
+        ticketVideo.play();
+    });
+</script>
     
     <div class="cover-red"></div>
     <div class="date-overlay-red" id="liveTime">
