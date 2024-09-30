@@ -164,16 +164,17 @@
 }
 
 .ticket-video {
-    border: 2px solid red; /* Add a border for debugging */
-    background-color: black; /* Set a background color */
     position: absolute;
-    top: 70.9%; /* Same as the image */
+    top: 68%; /* Adjusted position to be slightly higher */
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 230px; /* Same size as the image */
+    width: 250px; /* Increased size slightly */
     height: auto; /* Maintain aspect ratio */
     display: none; /* Initially hidden */
+    z-index: 10; /* Ensure the video is on top */
+    /* Removed the background color */
 }
+
 
 
 </style>
