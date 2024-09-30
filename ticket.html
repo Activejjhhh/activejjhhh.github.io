@@ -238,9 +238,10 @@
             ticketVideo.play();
         });
 
-        // Hide the video when it ends
+        // Hide the video when it ends and reset it
         ticketVideo.addEventListener('ended', function() {
-            ticketVideo.style.display = 'none';
+            ticketVideo.style.display = 'none';  // Hide the video
+            ticketVideo.currentTime = 0;         // Reset playback position to the start
         });
     </script>
     
