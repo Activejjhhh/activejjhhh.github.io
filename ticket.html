@@ -175,6 +175,23 @@
     display: none; /* Initially hidden */
 }
 
+<script>
+    // Get the image and video elements
+    var ticketImage = document.getElementById('ticketImage');
+    var ticketVideo = document.getElementById('ticketVideo');
+
+    // Add event listener for when the image is pressed
+    ticketImage.addEventListener('click', function() {
+        // Hide the image
+        ticketImage.style.display = 'none';
+        
+        // Show the video
+        ticketVideo.style.display = 'block';
+
+        // Play the video
+        ticketVideo.play();
+    });
+</script>
 
 
 
