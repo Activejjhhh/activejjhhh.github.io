@@ -234,16 +234,19 @@
         // Show the video
         ticketVideo.style.display = 'block';
 
+        // Reset the video to the start
+        ticketVideo.currentTime = 0; // Reset playback position to the start
+
         // Play the video
         ticketVideo.play();
     });
 
-    // Hide the video when it ends and reset it
+    // Hide the video when it ends
     ticketVideo.addEventListener('ended', function() {
         ticketVideo.style.display = 'none';  // Hide the video
-        ticketVideo.currentTime = 0;         // Reset playback position to the start
     });
 </script>
+
 
     
     <div class="cover-red"></div>
