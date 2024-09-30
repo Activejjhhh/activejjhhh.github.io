@@ -174,83 +174,78 @@
     display: none; /* Initially hidden */
     z-index: 10; /* Ensure the video is on top */
 }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="cover1"></div>
+    <div class="date-overlay1">
+        <!-- JavaScript to get today's date -->
+        <script>
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth()); //January is 0!
+            var yyyy = today.getFullYear();
+            var day = today.getDay(); // Sunday is 0!
     
-<script>
-    // Date Functions
-    function updateDate() {
-        const today = new Date();
-        const dd = String(today.getDate()).padStart(2, '0');
-        const mm = today.getMonth();
-        const yyyy = today.getFullYear();
-        const day = today.getDay();
+            var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     
-        const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            today = days[day] + ' ' + dd + ' ' + months[mm] + ' ' + yyyy + ' 07:24';
+            document.write(today);
+        </script>
+    </div>
+    <div class="cover2"></div>
+    <div class="date-overlay2">
+        <!-- JavaScript to get tomorrow's date -->
+        <script>
+            var tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(2, 0, 0, 0);
     
-        document.getElementById('date1').innerHTML = `${days[day]} ${dd} ${months[mm]} ${yyyy} 07:24`;
+            var dd = String(tomorrow.getDate()).padStart(2, '0');
+            var mm = String(tomorrow.getMonth()); //January is 0!
+            var yyyy = tomorrow.getFullYear();
+            var day = tomorrow.getDay(); // Sunday is 0!
     
-        const tomorrow = new Date();
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        tomorrow.setHours(2, 0, 0, 0);
-        const ddT = String(tomorrow.getDate()).padStart(2, '0');
-        const mmT = tomorrow.getMonth();
-        const dayT = tomorrow.getDay();
+            var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     
-        document.getElementById('date2').innerHTML = `${days[dayT]} ${ddT} ${months[mmT]} ${yyyy} 02:00`;
-    }
+            tomorrow = days[day] + ' ' + dd + ' ' + months[mm] + ' ' + yyyy + ' 02:00';
+            document.write(tomorrow);
+        </script>
+    </div>
+    <img src="tramimage.PNG" alt="Ticket Image" class="ticket-image" id="ticketImage"> <!-- Added id here -->
+    <video class="ticket-video" id="ticketVideo" width="300" height="auto" style="display: none;" onended="this.style.display='none';">
+        <source src="111.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
-    // Live Time Function
-    function updateLiveTime() {
-        const now = new Date();
-        const dd = String(now.getDate()).padStart(2, '0');
-        const mm = now.getMonth();
-        const yyyy = now.getFullYear();
-        const day = now.getDay();
-        const hh = String(now.getHours()).padStart(2, '0');
-        const min = String(now.getMinutes()).padStart(2, '0');
-        const sec = String(now.getSeconds()).padStart(2, '0');
-    
-        const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    
-        document.getElementById('liveTime').innerHTML = `${days[day]} ${dd} ${months[mm]} ${yyyy} ${hh}:${min}:${sec}`;
-    }
+    <script>
+    // Get the image and video elements
+    var ticketImage = document.getElementById('ticketImage'); // Now references the correct id
+    var ticketVideo = document.getElementById('ticketVideo');
 
-    // Countdown Function
-    function updateCountdown() {
-        const now = new Date();
-        const countdownDate = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 2, 0, 0);
-        const timeDifference = countdownDate - now;
-    
-        const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-    
-        document.getElementById('countdown').innerHTML = `Countdown to event: ${hours}h ${minutes}m ${seconds}s`;
-    }
+    // Add event listener for when the image is pressed
+    ticketImage.addEventListener('click', function() {
+        // Hide the image
+        ticketImage.style.display = 'none';
+        
+        // Show the video
+        ticketVideo.style.display = 'block';
 
-    // Show video when image is clicked
-    document.getElementById('ticketImage').addEventListener('click', function() {
-        const video = document.getElementById('ticketVideo');
-        video.style.display = 'block';
-        video.currentTime = 0; // Reset video to the beginning
-        video.play();
+        // Reset the video to the start
+        ticketVideo.currentTime = 0; // Reset playback position to the start
+
+        // Play the video
+        ticketVideo.play();
     });
 
-    // Hide video and reset playback when it ends
-    document.getElementById('ticketVideo').addEventListener('ended', function() {
-        this.style.display = 'none';
-        this.currentTime = 0; // Reset playback time
+    // Hide the video when it ends
+    ticketVideo.addEventListener('ended', function() {
+        ticketVideo.style.display = 'none';  // Hide the video
     });
-
-    // Update functions every second
-    setInterval(() => {
-        updateDate();
-        updateLiveTime();
-        updateCountdown();
-    }, 1000);
 </script>
-
 
 
     
@@ -308,6 +303,10 @@
 </body>
 
 </html>
+
+
+
+
 
 
 
