@@ -164,17 +164,6 @@
 }
 
 
-/* Style for the video */
-.ticket-video {
-    position: absolute;
-    top: 70.9%; /* Same as the image */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 230px; /* Same size as the image */
-    height: auto; /* Maintain aspect ratio */
-    display: none; /* Initially hidden */
-}
-
 
 
 
@@ -220,29 +209,28 @@
             document.write(tomorrow);
         </script>
     </div>
-    <img src="tramimage.PNG" alt="Ticket Image" class="ticket-image">
+<img src="tramimage.PNG" alt="Ticket Image" class="ticket-image" id="ticketImage"> <!-- Added id here -->
     <video class="ticket-video" id="ticketVideo" width="230" height="auto" controls style="display: none;">
-    <source src="IMG_0003-vmake.mp4" type="video/mp4">
-    Your browser does not support the video tag.
+        <source src="IMG_0003-vmake.mp4" type="video/mp4">
+        Your browser does not support the video tag.
     </video>
 
     <script>
-    // Get the image and video elements
-    var ticketImage = document.getElementById('ticketImage');
-    var ticketVideo = document.getElementById('ticketVideo');
+        // Get the image and video elements
+        var ticketImage = document.getElementById('ticketImage'); // Now references the correct id
+        var ticketVideo = document.getElementById('ticketVideo');
 
-    // Add event listener for when the image is pressed
-    ticketImage.addEventListener('click', function() {
-        // Hide the image
-        ticketImage.style.display = 'none';
-        
-        // Show the video
-        ticketVideo.style.display = 'block';
+        // Add event listener for when the image is pressed
+        ticketImage.addEventListener('click', function() {
+            // Hide the image
+            ticketImage.style.display = 'none';
+            
+            // Show the video
+            ticketVideo.style.display = 'block';
 
-        // Play the video
-        ticketVideo.play();
-    });
-</script>
+            // Play the video
+            ticketVideo.play();
+        });
     
     <div class="cover-red"></div>
     <div class="date-overlay-red" id="liveTime">
