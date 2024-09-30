@@ -150,12 +150,19 @@
 /* Style for the image */
 .ticket-image {
     position: absolute;
-    top: 70.9%; /* Moved down */
+    top: 70.9%; /* Adjusted position */
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 230px; /* Slightly bigger */
+    width: 230px; /* Adjusted size */
     height: auto; /* Maintain aspect ratio */
+    transition: filter 0.2s ease; /* Smooth transition */
 }
+
+/* Lighten the image when pressed */
+.ticket-image:active {
+    filter: brightness(1.2); /* Increase brightness to lighten the image */
+}
+
 
 
 
