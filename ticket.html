@@ -216,10 +216,11 @@
         </script>
     </div>
     <img src="tramimage.PNG" alt="Ticket Image" class="ticket-image" id="ticketImage"> <!-- Added id here -->
-    <video class="ticket-video" id="ticketVideo" width="300" height="auto" style="display: none;" onended="this.style.display='none';">
-        <source src="111.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <video class="ticket-video" id="ticketVideo" width="310" height="auto" style="display: none;" onended="this.style.display='none';" playsinline>
+    <source src="111.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
 
     <script>
     // Get the image and video elements
