@@ -224,27 +224,24 @@
 
     <script>
     // Get the image and video elements
-    var ticketImage = document.getElementById('ticketImage'); // Now references the correct id
+    var ticketImage = document.getElementById('ticketImage');
     var ticketVideo = document.getElementById('ticketVideo');
 
-    // Add event listener for when the image is pressed
+    // Add event listener for when the image is clicked
     ticketImage.addEventListener('click', function() {
         // Hide the image
         ticketImage.style.display = 'none';
-        
-        // Show the video
+
+        // Show and play the video
         ticketVideo.style.display = 'block';
-
-        // Reset the video to the start
         ticketVideo.currentTime = 0; // Reset playback position to the start
-
-        // Play the video
         ticketVideo.play();
     });
 
-    // Hide the video when it ends
+    // Hide the video and show the image when the video ends
     ticketVideo.addEventListener('ended', function() {
         ticketVideo.style.display = 'none';  // Hide the video
+        ticketImage.style.display = 'block';  // Show the image again
     });
 </script>
 
