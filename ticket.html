@@ -28,6 +28,16 @@
     overflow: hidden; 
 }
 
+.dayadult-image {
+    position: absolute;
+    top: 50%; /* Initial position */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px; /* Initial size */
+    height: auto; /* Maintain aspect ratio */
+    transition: filter 0.2s ease; /* Smooth transition */
+}
+    
 .green-circle {
     position: absolute;
     top: calc(7% + 4px);
@@ -216,6 +226,7 @@
         </script>
     </div>
     <img src="tramimage.PNG" alt="Ticket Image" class="ticket-image" id="ticketImage"> <!-- Added id here -->
+    <img src="dayadult.PNG" alt="Day Adult Ticket" class="dayadult-image" id="dayAdultImage">
     <video class="ticket-video" id="ticketVideo" width="310" height="auto" style="display: none;" onended="this.style.display='none';" playsinline>
     <source src="lasttram.mov" type="video/mp4">
     Your browser does not support the video tag.
