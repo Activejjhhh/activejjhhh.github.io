@@ -205,18 +205,36 @@
     <div class="date-overlay1">
         <!-- JavaScript to get today's date -->
         <script>
-            var today = new Date();
-            var dd = String(today.getDate()).padStart(2, '0');
-            var mm = String(today.getMonth()); //January is 0!
-            var yyyy = today.getFullYear();
-            var day = today.getDay(); // Sunday is 0!
-    
-            var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-            var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    
-            today = days[day] + ' ' + dd + ' ' + months[mm] + ' ' + yyyy + ' 08:15';
-            document.write(today);
-        </script>
+    function getRandomTicketTime() {
+        var now = new Date();
+        var startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 7, 0, 0); // 7:00 AM today
+        var tenMinutesBeforeNow = new Date(now.getTime() - 10 * 60 * 1000); // 10 minutes before the current time
+
+        // Calculate the range in milliseconds
+        var range = tenMinutesBeforeNow.getTime() - startOfDay.getTime();
+
+        // Generate a random time within the range
+        var randomTime = new Date(startOfDay.getTime() + Math.random() * range);
+
+        // Format the random time
+        var dd = String(randomTime.getDate()).padStart(2, '0');
+        var mm = String(randomTime.getMonth()); // January is 0!
+        var yyyy = randomTime.getFullYear();
+        var day = randomTime.getDay(); // Sunday is 0!
+        var hh = String(randomTime.getHours()).padStart(2, '0');
+        var min = String(randomTime.getMinutes()).padStart(2, '0');
+
+        var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+        var formattedTime = days[day] + ' ' + dd + ' ' + months[mm] + ' ' + yyyy + ' ' + hh + ':' + min;
+        return formattedTime;
+    }
+
+    // Display the random ticket time
+    document.write(getRandomTicketTime());
+</script>
+
     </div>
     <div class="cover2"></div>
     <div class="date-overlay2">
