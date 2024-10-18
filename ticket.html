@@ -18,45 +18,49 @@
 <style>
 
 .container {
-    width: 100vw; /* Full viewport width */
-    height: 100vh; /* Full viewport height */
+    width: 390px;
+    height: 844px;
     position: relative;
     margin: auto;
     background-image: url('net.png');
-    background-size: cover; /* Cover the entire container */
+    background-size: cover;
     background-position: center;
     overflow: hidden; 
 } 
-
+    
 .person-image {
     position: absolute;
-    top: 30%; /* Adjusted position */
-    left: 29%; /* Adjusted position */
+    top: 30%; /* Moved down */
+    left: 29%; /* Shifted to the right */
     transform: translate(-50%, -50%);
-    width: 10%; /* Use percentage for responsive width */
+    width: 85px; /* 75 is the perfect ratio*/
     height: auto; /* Maintain aspect ratio */
     transition: filter 0.2s ease; /* Smooth transition */
 }
+
 
 .dayadult-image {
     position: absolute;
-    top: 13.35%; /* Adjusted position */
-    left: 72%; /* Adjusted position */
+    top: 13.35%; /* Moved up */
+    left: 72%; /* Shifted to the right */
     transform: translate(-50%, -50%);
-    width: 12%; /* Use percentage for responsive width */
+    width: 125px; /* Made smaller */
     height: auto; /* Maintain aspect ratio */
     transition: filter 0.2s ease; /* Smooth transition */
 }
 
+    
 .green-circle {
     position: absolute;
-    top: 7%; /* Adjusted position */
-    right: 5%; /* Adjusted position */
-    width: 2.5%; /* Use percentage for responsive size */
-    height: 2.5%; /* Use percentage for responsive size */
+    top: calc(7% + 4px);
+    right: 28px; 
+    width: 11px;
+    height: 11px;
     background-color: green;
     border-radius: 50%;
 }
+
+
 
 .cover-top {
     position: absolute;
@@ -67,46 +71,48 @@
     background-color: white;
 }
 
+
 /* created date function */
 .cover1 {
     position: absolute;
     top: 50%;  
     left: 50%;
-    width: 25%; /* Use percentage for responsive width */
-    height: 5%; /* Use percentage for responsive height */
+    width: 250px;  
+    height: 26px;  
     background-color: #012a29;  
     transform: translate(-50%, -50%);
 }
 
+
 .date-overlay1 {
     position: absolute;
-    top: calc(50% - 2.5%); /* Center vertically in cover1 */
+    top: calc(50% - 5px);  
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 2.5%;  
+    font-size: 20px;  
     font-weight: bold; 
     color: white;  
     font-family: Arial, sans-serif;  
     white-space: nowrap;  
-}
 
 /* expiration date function */
+}
 .cover2 {
     position: absolute;
-    top: 60%;  
+    top: 57%;  
     left: 50%;
-    width: 25%; /* Use percentage for responsive width */
-    height: 5%; /* Use percentage for responsive height */
+    width: 250px; 
+    height: 26px;  
     background-color: #40605e;  
     transform: translate(-50%, -50%);
 }
 
 .date-overlay2 {
     position: absolute;
-    top: calc(60% - 2.5%); /* Center vertically in cover2 */
+    top: calc(60% - 27px); 
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 2.4%;  
+    font-size: 19px;  
     font-weight: bold;  
     color: white;  
     font-family: Arial, sans-serif;
@@ -114,48 +120,53 @@
 }
 
 /* live time function  */
+
+
 .cover-red {
     position: absolute;
     top: 40%; 
     left: 50%;
-    width: 25%; /* Use percentage for responsive width */
-    height: 4%; /* Use percentage for responsive height */
+    width: 250px;  
+    height: 24px;
     background-color: #FFFFFF;  
     transform: translate(-50%, -50%);
 }
 
 .date-overlay-red {
     position: absolute;
-    top: calc(40% - 1%);  
+    top: calc(40% - 1px);  
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 2%;  
+    font-size: 17px;  
     font-weight: bold;  
     color: #012a29;  
     font-family: Consolas, Menlo, monospace;  
     white-space: nowrap; 
 }
 
+
 /* countdown function */
 .cover-blue {
     position: absolute;
     top: 75%; 
     left: 50%;
-    width: 30%; /* Use percentage for responsive width */
-    height: 4%; /* Use percentage for responsive height */
+    width: 290px;  
+    height: 24px;
     background-color: #042c2c;  
     transform: translate(-50%, -50%);
 }
 
+
 .date-overlay-blue {
     position: absolute;
-    top: calc(75% - 1%);  
+    top: calc(75% - 1px);  
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 2%;  
+    font-size: 17px;  
     font-weight: bold; 
     color: white;  
     font-family: Consolas, Menlo, monospace;
+ 
     white-space: nowrap; 
 }
 
@@ -165,7 +176,7 @@
     top: 70.9%; /* Adjusted position */
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 25%; /* Use percentage for responsive width */
+    width: 230px; /* Adjusted size */
     height: auto; /* Maintain aspect ratio */
     transition: filter 0.2s ease; /* Smooth transition */
 }
@@ -178,16 +189,14 @@
 /* Style for the video */
 .ticket-video {
     position: absolute;
-    top: 69.55%; /* Adjusted position slightly lower */
+    top: 69.55%; /* Adjusted position day be slightly lower */
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 28%; /* Use percentage for responsive width */
+    width: 280x; /* Increased size slightly */
     height: auto; /* Maintain aspect ratio */
     display: none; /* Initially hidden */
     z-index: 10; /* Ensure the video is on top */
 }
-
-    
 </style>
 </head>
 <body>
@@ -336,6 +345,8 @@
 </body>
 
 </html>
+
+
 
 
 
