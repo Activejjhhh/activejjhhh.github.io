@@ -1,194 +1,202 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+
+<html>
+<head
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8TVRSG0WQ6"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-8TVRSG0WQ6');
-    </script>
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="apple-touch-icon" href="touch-icon-iphone.png">
-    <style>
-        /* Ensuring the body has no margins and fills the screen */
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden; /* Prevent scrolling */
-        }
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TVRSG0WQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-        .container {
-            width: 100%; /* Changed to fill the screen width */
-            height: 100%; /* Changed to fill the screen height */
-            position: relative;
-            background-image: url(net.png); /* Local file path for development */
-            background-size: cover;
-            background-position: center;
-        }
+  gtag('config', 'G-8TVRSG0WQ6');
+</script>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" href="touch-icon-iphone.png">
+<style>
 
-        .person-image {
-            position: absolute;
-            top: 30%; /* Adjust as needed */
-            left: 29%; /* Adjust as needed */
-            transform: translate(-50%, -50%);
-            width: 85px; /* Adjust as needed */
-            height: auto; /* Maintain aspect ratio */
-            transition: filter 0.2s ease; /* Smooth transition */
-        }
+.container {
+    width: 390px;
+    height: 844px;
+    position: relative;
+    margin: auto;
+    background-image: url('net.png');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden; 
+} 
+    
+.person-image {
+    position: absolute;
+    top: 30%; /* Moved down */
+    left: 29%; /* Shifted to the right */
+    transform: translate(-50%, -50%);
+    width: 85px; /* 75 is the perfect ratio*/
+    height: auto; /* Maintain aspect ratio */
+    transition: filter 0.2s ease; /* Smooth transition */
+}
 
-        .dayadult-image {
-            position: absolute;
-            top: 13.35%; /* Adjust as needed */
-            left: 72%; /* Adjust as needed */
-            transform: translate(-50%, -50%);
-            width: 125px; /* Adjust as needed */
-            height: auto; /* Maintain aspect ratio */
-            transition: filter 0.2s ease; /* Smooth transition */
-        }
-            .green-circle {
-            position: absolute;
-            top: calc(7% + 4px);
-            right: 28px; 
-            width: 11px;
-            height: 11px;
-            background-color: green;
-            border-radius: 50%;
-        }
 
-        .cover-top {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5%;
-            background-color: white;
-        }
+.dayadult-image {
+    position: absolute;
+    top: 13.35%; /* Moved up */
+    left: 72%; /* Shifted to the right */
+    transform: translate(-50%, -50%);
+    width: 125px; /* Made smaller */
+    height: auto; /* Maintain aspect ratio */
+    transition: filter 0.2s ease; /* Smooth transition */
+}
 
-        /* Created date function */
-        .cover1 {
-            position: absolute;
-            top: 50%;  
-            left: 50%;
-            width: 250px;  
-            height: 26px;  
-            background-color: #012a29;  
-            transform: translate(-50%, -50%);
-        }
+    
+.green-circle {
+    position: absolute;
+    top: calc(7% + 4px);
+    right: 28px; 
+    width: 11px;
+    height: 11px;
+    background-color: green;
+    border-radius: 50%;
+}
 
-        .date-overlay1 {
-            position: absolute;
-            top: calc(50% - 5px);  
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 20px;  
-            font-weight: bold; 
-            color: white;  
-            font-family: Arial, sans-serif;  
-            white-space: nowrap;  
-        }
 
-        /* Expiration date function */
-        .cover2 {
-            position: absolute;
-            top: 57%;  
-            left: 50%;
-            width: 250px; 
-            height: 26px;  
-            background-color: #40605e;  
-            transform: translate(-50%, -50%);
-        }
 
-        .date-overlay2 {
-            position: absolute;
-            top: calc(60% - 27px); 
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 19px;  
-            font-weight: bold;  
-            color: white;  
-            font-family: Arial, sans-serif;
-            white-space: nowrap;  
-        }
+.cover-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5%;
+    background-color: white;
+}
 
-        /* Live time function */
-        .cover-red {
-            position: absolute;
-            top: 40%; 
-            left: 50%;
-            width: 250px;  
-            height: 24px;
-            background-color: #FFFFFF;  
-            transform: translate(-50%, -50%);
-        }
 
-        .date-overlay-red {
-            position: absolute;
-            top: calc(40% - 1px);  
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 17px;  
-            font-weight: bold;  
-            color: #012a29;  
-            font-family: Consolas, Menlo, monospace;  
-            white-space: nowrap; 
-        }
+/* created date function */
+.cover1 {
+    position: absolute;
+    top: 50%;  
+    left: 50%;
+    width: 250px;  
+    height: 26px;  
+    background-color: #012a29;  
+    transform: translate(-50%, -50%);
+}
 
-        /* Countdown function */
-        .cover-blue {
-            position: absolute;
-            top: 75%; 
-            left: 50%;
-            width: 290px;  
-            height: 24px;
-            background-color: #042c2c;  
-            transform: translate(-50%, -50%);
-        }
 
-        .date-overlay-blue {
-            position: absolute;
-            top: calc(75% - 1px);  
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 17px;  
-            font-weight: bold; 
-            color: white;  
-            font-family: Consolas, Menlo, monospace;
-            white-space: nowrap; 
-        }
+.date-overlay1 {
+    position: absolute;
+    top: calc(50% - 5px);  
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;  
+    font-weight: bold; 
+    color: white;  
+    font-family: Arial, sans-serif;  
+    white-space: nowrap;  
 
-        /* Style for the image */
-        .ticket-image {
-            position: absolute;
-            top: 70.9%; /* Adjusted position */
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 230px; /* Adjusted size */
-            height: auto; /* Maintain aspect ratio */
-            transition: filter 0.2s ease; /* Smooth transition */
-        }
+/* expiration date function */
+}
+.cover2 {
+    position: absolute;
+    top: 57%;  
+    left: 50%;
+    width: 250px; 
+    height: 26px;  
+    background-color: #40605e;  
+    transform: translate(-50%, -50%);
+}
 
-        /* Lighten the image when pressed */
-        .ticket-image:active {
-            filter: brightness(1.5); /* Increase brightness to lighten the image */
-        }
+.date-overlay2 {
+    position: absolute;
+    top: calc(60% - 27px); 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 19px;  
+    font-weight: bold;  
+    color: white;  
+    font-family: Arial, sans-serif;
+    white-space: nowrap;  
+}
 
-        /* Style for the video */
-        .ticket-video {
-            position: absolute;
-            top: 69.55%; /* Adjusted position to be slightly lower */
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 280px; /* Corrected width */
-            height: auto; /* Maintain aspect ratio */
-            display: none; /* Initially hidden */
-            z-index: 10; /* Ensure the video is on top */
-        }
+/* live time function  */
+
+
+.cover-red {
+    position: absolute;
+    top: 40%; 
+    left: 50%;
+    width: 250px;  
+    height: 24px;
+    background-color: #FFFFFF;  
+    transform: translate(-50%, -50%);
+}
+
+.date-overlay-red {
+    position: absolute;
+    top: calc(40% - 1px);  
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 17px;  
+    font-weight: bold;  
+    color: #012a29;  
+    font-family: Consolas, Menlo, monospace;  
+    white-space: nowrap; 
+}
+
+
+/* countdown function */
+.cover-blue {
+    position: absolute;
+    top: 75%; 
+    left: 50%;
+    width: 290px;  
+    height: 24px;
+    background-color: #042c2c;  
+    transform: translate(-50%, -50%);
+}
+
+
+.date-overlay-blue {
+    position: absolute;
+    top: calc(75% - 1px);  
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 17px;  
+    font-weight: bold; 
+    color: white;  
+    font-family: Consolas, Menlo, monospace;
+ 
+    white-space: nowrap; 
+}
+
+/* Style for the image */
+.ticket-image {
+    position: absolute;
+    top: 70.9%; /* Adjusted position */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 230px; /* Adjusted size */
+    height: auto; /* Maintain aspect ratio */
+    transition: filter 0.2s ease; /* Smooth transition */
+}
+
+/* Lighten the image when pressed */
+.ticket-image:active {
+    filter: brightness(1.5); /* Increase brightness to lighten the image */
+}
+
+/* Style for the video */
+.ticket-video {
+    position: absolute;
+    top: 69.55%; /* Adjusted position day be slightly lower */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 280x; /* Increased size slightly */
+    height: auto; /* Maintain aspect ratio */
+    display: none; /* Initially hidden */
+    z-index: 10; /* Ensure the video is on top */
+}
 </style>
 </head>
 <body>
