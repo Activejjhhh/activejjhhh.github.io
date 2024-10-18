@@ -276,70 +276,48 @@
     <div class="cover-red"></div>
     <div class="date-overlay-red" id="liveTime">
         <!-- JavaScript to get live time -->
-<div class="live-time" id="liveTime"></div>
-<div class="cover-blue"></div>
-<div class="date-overlay-blue" id="countdown"></div>
+        <script>
+            function updateTime() {
+                var now = new Date();
+                var dd = String(now.getDate()).padStart(2, '0');
+                var mm = String(now.getMonth()); //January is 0!
+                var yyyy = now.getFullYear();
+                var day = now.getDay(); // Sunday is 0!
+                var hh = String(now.getHours()).padStart(2, '0');
+                var min = String(now.getMinutes()).padStart(2, '0');
+                var sec = String(now.getSeconds()).padStart(2, '0');
+    
+                var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+                var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    
+                var liveTime = days[day] + ' ' + dd + '  ' + months[mm] + '  ' + yyyy + '  ' + hh + ':' + min + ':' + sec;
+                document.getElementById('liveTime').innerHTML = liveTime;
+            }
+            setInterval(updateTime, 1000); 
+        </script>
+    </div>
+    <div class="cover-blue"></div>
+    <div class="date-overlay-blue" id="countdown">
+            <!-- JavaScript to get countdown to next day at 2 AM -->
+            <script>
+                function updateCountdown() {
+                    var now = new Date();
+                    var tomorrow = new Date();
+                    tomorrow.setDate(tomorrow.getDate() + 1);
+                    tomorrow.setHours(2, 0, 0, 0);
+        
+                    var diff = Math.abs(tomorrow - now);
+                    var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        
+                    var countdown = days + " days  " + hours + " hrs  " + minutes + " mins  " + seconds + " secs";
 
-<script>
-    // Function to update the live time with a random time between 7 AM and 10 minutes before the current time
-    function updateTime() {
-        var now = new Date();
-
-        // Set the start time to 7:00 AM
-        var start = new Date();
-        start.setHours(7, 0, 0, 0); // 7:00 AM
-
-        // Set the end time to 10 minutes before the current time
-        var end = new Date();
-        end.setMinutes(now.getMinutes() - 10);
-
-        // Generate a random time between start and end
-        var randomTime = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-
-        // Format the random time
-        var dd = String(randomTime.getDate()).padStart(2, '0');
-        var mm = String(randomTime.getMonth()); // January is 0!
-        var yyyy = randomTime.getFullYear();
-        var day = randomTime.getDay(); // Sunday is 0!
-        var hh = String(randomTime.getHours()).padStart(2, '0');
-        var min = String(randomTime.getMinutes()).padStart(2, '0');
-        var sec = String(randomTime.getSeconds()).padStart(2, '0');
-
-        // Arrays for days and months
-        var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-        var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-        // Create the formatted date string
-        var liveTime = days[day] + ' ' + dd + ' ' + months[mm] + ' ' + yyyy + ' ' + hh + ':' + min + ':' + sec;
-
-        // Display the live time
-        document.getElementById('liveTime').innerHTML = liveTime;
-    }
-
-    // Function to update the countdown to the next day at 2:00 AM
-    function updateCountdown() {
-        var now = new Date();
-        var tomorrow = new Date();
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        tomorrow.setHours(2, 0, 0, 0);
-
-        var diff = Math.abs(tomorrow - now);
-        var days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-        var countdown = days + " days  " + hours + " hrs  " + minutes + " mins  " + seconds + " secs";
-
-        // Display the countdown
-        document.getElementById('countdown').innerHTML = countdown;
-    }
-
-    // Update the time and countdown every second
-    setInterval(updateTime, 1000);
-    setInterval(updateCountdown, 1000);
-</script>
-
+                    document.getElementById('countdown').innerHTML = countdown;
+                }
+                setInterval(updateCountdown, 1000);
+            </script>
         </div>
 
         <div class="green-circle"></div>
@@ -349,7 +327,6 @@
 </body>
 
 </html>
-
 
 
 
